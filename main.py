@@ -89,7 +89,7 @@ class Server:
     def handle_stdin(self, stream):
         line = stream.readline()
         line_str = line.strip()
-        if line_str[0] == "!":
+        if line_str.startswith("!"):
             self.process_command(line_str[1:])
         else:
             self.server_process.stdin.write(line)
